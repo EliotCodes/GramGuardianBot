@@ -1,3 +1,4 @@
 1. Include a database, preferably MongoDB using Mongoose.
 2. Add a /help command.
 3. Add basic moderation e.g /ban, /unban, /kick, /mute, /unmute.
+4. Add bot phrase and words filteration.
