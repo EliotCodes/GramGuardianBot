@@ -3,6 +3,11 @@ const { Bot } = require("grammy");
 
 const bot = new Bot(process.env.BOT_TOKEN);
 
+/* MIDDLEWARES */
+
+/* AUTH */
+bot.use(require("./src/middlewares/authMiddleware"));
+
 /* COMMANDS */
 
 /* START */
