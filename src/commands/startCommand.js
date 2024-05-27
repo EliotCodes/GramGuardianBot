@@ -1,4 +1,5 @@
 const { InlineKeyboard } = require("grammy");
+const User = require("../models/userModel");
 
 const startCommand = async (ctx) => {
   const { first_name: firstName } = ctx.from;
