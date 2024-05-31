@@ -1,11 +1,24 @@
 const { InlineKeyboard } = require("grammy");
 
 const helpCommand = (ctx) => {
+  let mainMenuText, mainMenuCallack;
+
+  if (ctx.chat.type === "private") {
+
+    mainMenuText = "🔙 Main Menu";
+    mainMenuCallack = "menu";
+
+  } else {
+
+    mainMenuText = "❌ Close";
+    mainMenuCallack = "close";
+
+  }
   const inlineKeyboard = new InlineKeyboard()
-    .text("📃 More Commands", "/helpAdvance")
+    .url("📃 Full Help", "https://fullhelp.com")
     .url("📢 Support", "https://t.me/eliotcodes")
     .row()
-    .text("🔙 Main Menu", "menu");
+    .text(mainMenuText, mainMenuCallack);
 
   const text = `<b>📌 Here is the list of available commands:</b>\n
 <code>/ban</code> - Ban a user from the group.
@@ -28,8 +41,16 @@ const helpCommand = (ctx) => {
       reply_markup: inlineKeyboard,
       parse_mode: "HTML",
     });
+
   } else {
-    ctx.reply(text, { reply_markup: inlineKeyboard, parse_mode: "HTML" });
+
+    const messageID = ctx.message.message_id;
+    ctx.reply(text, {
+      reply_markup: inlineKeyboard,
+      parse_mode: "HTML",
+      reply_to_message_id: messageID,
+    });
+    
   }
 };
 
