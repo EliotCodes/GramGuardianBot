@@ -1,5 +1,11 @@
 const banCommand = (ctx) => {
-console.log(ctx.chat)
+
+// const reason = ctx.update.message.chat
+// console.log(reason)
+
+
+/* IMPLEMENT THE BANNING ALGORITHM */
+
 }
 
 module.exports = banCommand

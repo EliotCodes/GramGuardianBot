@@ -4,15 +4,11 @@ const helpCommand = (ctx) => {
   let mainMenuText, mainMenuCallack;
 
   if (ctx.chat.type === "private") {
-
     mainMenuText = "🔙 Main Menu";
     mainMenuCallack = "menu";
-
   } else {
-
     mainMenuText = "❌ Close";
     mainMenuCallack = "close";
-
   }
   const inlineKeyboard = new InlineKeyboard()
     .url("📃 Full Help", "https://fullhelp.com")
@@ -41,16 +37,13 @@ const helpCommand = (ctx) => {
       reply_markup: inlineKeyboard,
       parse_mode: "HTML",
     });
-
   } else {
-
     const messageID = ctx.message.message_id;
     ctx.reply(text, {
       reply_markup: inlineKeyboard,
       parse_mode: "HTML",
       reply_to_message_id: messageID,
     });
-    
   }
 };
 

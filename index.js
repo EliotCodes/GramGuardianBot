@@ -19,7 +19,7 @@ bot.command("help", require("./src/commands/helpCommand"));
 bot.callbackQuery("help", require("./src/commands/helpCommand"));
 
 /* BAN */
-bot.chatType(["group", "supergroup"]).command("ban", require("./src/commands/banCommand"));
+bot.chatType(["group", "supergroup"]).on("message:text", require("./src/commands/banCommand"));
 
 bot.start()
 console.log("Bot has started")
